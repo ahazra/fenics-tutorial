@@ -11,6 +11,7 @@ from __future__ import print_function
 from fenics import *
 from mshr import *
 import numpy as np
+import matplotlib.pyplot as plt
 
 T = 5.0            # final time
 num_steps = 5000   # number of time steps
@@ -112,7 +113,7 @@ File('navier_stokes_cylinder/cylinder.xml.gz') << mesh
 
 # Create progress bar
 progress = Progress('Time-stepping')
-set_log_level(PROGRESS)
+set_log_level(LogLevel.PROGRESS)
 
 # Time-stepping
 t = 0
@@ -152,8 +153,10 @@ for n in range(num_steps):
     p_n.assign(p_)
 
     # Update progress bar
-    progress.update(t / T)
-    print('u max:', u_.vector().array().max())
+    #progress.update(t / T)
+    #Progress(t / T)
+    print('u max:', u_.vector().get_local().max())
 
 # Hold plot
-interactive()
+#interactive()
+plt.show()

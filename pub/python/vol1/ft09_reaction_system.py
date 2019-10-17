@@ -12,6 +12,7 @@ is given by the flow field w from the demo navier_stokes_cylinder.py.
 
 from __future__ import print_function
 from fenics import *
+import matplotlib.pyplot as plt
 
 T = 5.0            # final time
 num_steps = 500    # number of time steps
@@ -73,7 +74,7 @@ vtkfile_u_3 = File('reaction_system/u_3.pvd')
 
 # Create progress bar
 progress = Progress('Time-stepping')
-set_log_level(PROGRESS)
+set_log_level(LogLevel.PROGRESS)
 
 # Time-stepping
 t = 0
@@ -98,7 +99,8 @@ for n in range(num_steps):
     u_n.assign(u)
 
     # Update progress bar
-    progress.update(t / T)
+    #progress.update(t / T)
 
 # Hold plot
-interactive()
+#interactive()
+plt.show()
