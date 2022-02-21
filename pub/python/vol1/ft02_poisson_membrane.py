@@ -11,6 +11,7 @@ from __future__ import print_function
 from fenics import *
 from mshr import *
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Create mesh and define function space
 domain = Circle(Point(0, 0), 1)

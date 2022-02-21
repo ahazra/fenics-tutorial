@@ -99,8 +99,7 @@ for n in range(num_steps):
     u_n.assign(u)
 
     # Update progress bar
-    #progress.update(t / T)
+    #Progress(t / T)
 
 # Hold plot
-#interactive()
 plt.show()

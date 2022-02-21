@@ -65,5 +65,4 @@ for n in range(num_steps):
     u_n.assign(u)
 
 # Hold plot
-#interactive()
 plt.show()

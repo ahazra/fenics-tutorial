@@ -125,4 +125,5 @@ for n in range(num_steps):
     p_n.assign(p_)
 
 # Hold plot
+#interactive()
 plt.show()

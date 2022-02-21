@@ -153,10 +153,8 @@ for n in range(num_steps):
     p_n.assign(p_)
 
     # Update progress bar
-    #progress.update(t / T)
-    #Progress(t / T)
-    print('u max:', u_.vector().get_local().max())
+    Progress(t / T)
+    print('u max:', u_.vector().array().max())
 
 # Hold plot
-#interactive()
 plt.show()

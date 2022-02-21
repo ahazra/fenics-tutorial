@@ -11,7 +11,6 @@ from __future__ import print_function
 from fenics import *
 from ufl import nabla_div
 import matplotlib.pyplot as plt
-#from tools.utils import draw_3Dimg
 
 # Scaled variables
 L = 1; W = 0.2
@@ -44,7 +43,6 @@ def epsilon(u):
 def sigma(u):
     return lambda_*nabla_div(u)*Identity(d) + 2*mu*epsilon(u)
 
-
 # Define variational problem
 u = TrialFunction(V)
 d = u.geometric_dimension()  # space dimension
@@ -73,8 +71,8 @@ u_magnitude = sqrt(dot(u, u))
 u_magnitude = project(u_magnitude, V)
 plot(u_magnitude, 'Displacement magnitude')
 print('min/max u:',
-      u_magnitude.vector().get_local().min(),
-      u_magnitude.vector().get_local().max())
+      u_magnitude.vector().array().min(),
+      u_magnitude.vector().array().max())
 
 # Save solution to file in VTK format
 File('elasticity/displacement.pvd') << u
@@ -82,5 +80,4 @@ File('elasticity/von_mises.pvd') << von_Mises
 File('elasticity/magnitude.pvd') << u_magnitude
 
 # Hold plot
-#interactive()
-plt.show()
+plt,show()

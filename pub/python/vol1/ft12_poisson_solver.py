@@ -15,6 +15,7 @@ encapsulates the solver as a Python function.
 from __future__ import print_function
 from fenics import *
 import numpy as np
+import matplotlib.pyplot as plt
 
 def solver(f, u_D, Nx, Ny, degree=1):
     """
@@ -93,4 +94,4 @@ def test_solver():
 
 if __name__ == '__main__':
     run_solver()
-    interactive()
+    plt.show()
